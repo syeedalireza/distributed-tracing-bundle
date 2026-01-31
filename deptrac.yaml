@@ -1,0 +1,21 @@
+deptrac:
+  paths:
+    - ./src
+  layers:
+    - name: Tracer
+      collectors:
+        - type: directory
+          value: src/Tracer/.*
+    - name: Exporter
+      collectors:
+        - type: directory
+          value: src/Exporter/.*
+    - name: Instrumentation
+      collectors:
+        - type: directory
+          value: src/Instrumentation/.*
+  ruleset:
+    Tracer: ~
+    Exporter: ~
+    Instrumentation:
+      - Tracer

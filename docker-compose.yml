@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "127.0.0.1:16686:16686"  # Jaeger UI
+      - "127.0.0.1:14268:14268"  # HTTP collector
+    networks:
+      - tracing-network
+
+networks:
+  tracing-network:
+    driver: bridge
